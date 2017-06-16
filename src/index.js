@@ -3,8 +3,7 @@ import echarts from 'echarts';
 
 import Core from './core';
 
-const Chart = props => (
-  <Core {...props} echarts={echarts} />
-);
-
-export default Chart;
+export default class Chart extends React.Component {
+  getEchartsInstance = () => this._ref.getEchartsInstance()
+  render = () => (<Core {...this.props} ref={e => this._ref = e} echarts={echarts} />)
+}
